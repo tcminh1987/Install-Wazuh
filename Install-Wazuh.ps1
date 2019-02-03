@@ -31,13 +31,10 @@ Install-Wazuh -path C:\Users\example\Desktop -agentname 'example'
 
 [CmdletBinding()]
 
-#Establish parameters for path
+#Establish parameters
 param (
-    [string]$path=[Environment]::GetFolderPath("Desktop")   
-)
-
-param (
-	[string]$agentname
+    [string]$path=[Environment]::GetFolderPath("Desktop")
+    [string]$agentname
 )
 
 #Test path and create it if required
