@@ -33,7 +33,7 @@ Install-Wazuh -path C:\Users\example\Desktop -agentname 'example'
 
 #Establish parameters
 param (
-    [string]$path=[Environment]::GetFolderPath("Desktop")
+    [string]$path=[Environment]::GetFolderPath("Desktop"),
     [string]$agentname
 )
 
