@@ -50,9 +50,15 @@ Set-Location $path
 
 Invoke-Webrequest -uri https://packages.wazuh.com/3.x/windows/wazuh-agent-3.8.2-1.msi -outfile wazuh-agent-3.8.2-1.msi
 
+Write-Host "Wazuh Downloaded..."
+
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/aluminoobie/Install-Wazuh/master/ossec.conf -Outfile ossec.conf
 
-.\wazuh-agent-3.8.2-1.msi /q ADDRESS="172.20.3.35" AUTHD_SERVER="172.20.3.35" PASSWORD="ossec" AGENT_NAME="$agentname" /l installer.log
+Write-Host "Configuration File Retrieved..."
+
+Write-Host "Installing Wazuh..."
+
+msiexec.exe /i .\wazuh-agent-3.8.2-1.msi /q ADDRESS="172.20.3.35" AUTHD_SERVER="172.20.3.35" PASSWORD="ossec" AGENT_NAME="$agentname" /l installer.log
 
 Copy-Item ossec.conf -Destination 'C:\Program Files (x86)\ossec-agent\'
 
