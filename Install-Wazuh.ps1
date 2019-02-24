@@ -48,6 +48,8 @@ If(!(test-path $path))
 
 Set-Location $path
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 Invoke-Webrequest -uri https://packages.wazuh.com/3.x/windows/wazuh-agent-3.8.2-1.msi -outfile wazuh-agent-3.8.2-1.msi
 
 Write-Host "Wazuh Downloaded..."
