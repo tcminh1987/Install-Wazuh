@@ -1,7 +1,7 @@
 
 # update the connection strings:
 Stop-Service W3SVC
-$connectionString = "Data Source=nerd-dinner-db,1433;Initial Catalog=NerdDinner;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30"
+$connectionString = "Data Source=nerd-dinner-db,1433;Initial Catalog=NerdDinner;Trusted_Connection=True;MultipleActiveResultSets=True;Connect Timeout=30"
 
 $file = 'C:\nerd-dinner\Web.config' 
 [xml]$config = Get-Content $file;
