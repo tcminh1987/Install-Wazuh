@@ -12,7 +12,7 @@ Start-Service MSSQL`$SQLEXPRESS
 if ($sa_password -ne "_") {
 	Write-Verbose 'Changing SA login credentials'
     $sqlcmd = "ALTER LOGIN sa with password='$sa_password'; ALTER LOGIN sa ENABLE;"
-    Invoke-SqlCmd -Query $sqlcmd -Server 127.0.0.1 -ServerInstance ".\SQLEXPRESS" 
+    Invoke-SqlCmd -Query $sqlcmd -ServerInstance ".\SQLEXPRESS" 
 }
 
 $mdfPath = "$data_path\NerdDinner_Primary.mdf"
