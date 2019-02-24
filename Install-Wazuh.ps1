@@ -60,7 +60,7 @@ Write-Host "Configuration File Retrieved..."
 
 Write-Host "Installing Wazuh..."
 
-.\wazuh-agent-3.8.2-1.msi /q ADDRESS="172.18.42.125" AUTHD_SERVER="172.18.42.125" PASSWORD="ossec" AGENT_NAME="$agentname" /l*v installer.log
+.\wazuh-agent-3.8.2-1.msi /q ADDRESS="172.17.32.244" AUTHD_SERVER="172.17.32.244" PASSWORD="ossec" AGENT_NAME="$agentname" /l*v installer.log
 
 Copy-Item ossec.conf -Destination 'C:\Program Files (x86)\ossec-agent\'
 
