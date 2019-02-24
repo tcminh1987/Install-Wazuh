@@ -12,7 +12,7 @@ Start-Service MSSQL`$SQLEXPRESS
 if ($sa_password -ne "_") {
 	Write-Verbose 'Changing SA login credentials'
     $sqlcmd = "ALTER LOGIN sa with password='$sa_password'; ALTER LOGIN sa ENABLE;"
-    Invoke-SqlCmd -Query $sqlcmd -ServerInstance ".\SQLEXPRESS" 
+    Invoke-SqlCmd -Query $sqlcmd -Server 127.0.0.1 -ServerInstance ".\SQLEXPRESS" 
 }
 
 $mdfPath = "$data_path\NerdDinner_Primary.mdf"
@@ -40,7 +40,7 @@ $SqlPackagePath = 'C:\Program Files (x86)\Microsoft SQL Server\130\DAC\bin\SqlPa
     /tsn:.\SQLEXPRESS /tdn:NerdDinner /tu:sa /tp:$sa_password 
 
 $SqlCmdVars = "DatabaseName=NerdDinner", "DefaultFilePrefix=NerdDinner", "DefaultDataPath=$data_path\", "DefaultLogPath=$data_path\"  
-Invoke-Sqlcmd -InputFile deploy.sql -Variable $SqlCmdVars -Verbose
+Invoke-Sqlcmd -Server 127.0.0.1 -InputFile deploy.sql -Variable $SqlCmdVars -Verbose
 
 Write-Verbose "Deployed NerdDinner database, data files at: $data_path"
 
