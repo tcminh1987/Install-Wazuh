@@ -50,7 +50,7 @@ Set-Location $path
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-Invoke-Webrequest -uri https://packages.wazuh.com/3.x/windows/wazuh-agent-3.8.2-1.msi -outfile wazuh-agent-3.8.2-1.msi
+Invoke-Webrequest -uri https://packages.wazuh.com/3.x/windows/wazuh-agent-3.9.0-1.msi -outfile wazuh-agent-3.9.0-1.msi
 
 Write-Host "Wazuh Downloaded..."
 
@@ -60,7 +60,7 @@ Write-Host "Configuration File Retrieved..."
 
 Write-Host "Installing Wazuh..."
 
-.\wazuh-agent-3.8.2-1.msi /q ADDRESS="172.17.32.244" AUTHD_SERVER="172.17.32.244" PASSWORD="ossec" AGENT_NAME="$agentname" /l*v installer.log
+.\wazuh-agent-3.9.0-1.msi /q ADDRESS="172.17.32.244" AUTHD_SERVER="172.17.32.244" PASSWORD="ossec" AGENT_NAME="$agentname" /l*v installer.log
 
 Copy-Item ossec.conf -Destination 'C:\Program Files (x86)\ossec-agent\'
 
