@@ -54,7 +54,7 @@ Invoke-Webrequest -uri https://packages.wazuh.com/3.x/windows/wazuh-agent-3.9.0-
 
 Write-Host "Wazuh Downloaded..."
 
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/aluminoobie/Install-Wazuh/master/ossec.conf -Outfile ossec.conf
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/lock-wire/Install-Wazuh/master/ossec.conf -Outfile ossec.conf
 
 Write-Host "Configuration File Retrieved..."
 
